@@ -12,32 +12,39 @@ public class App implements ActionListener {
     private static int[][] user = {{123,123},{321,321}};
 
     public static void main(String[] args) throws Exception {
+        //Mengatur Layout aplikasi
         JFrame frame = new JFrame();
-        JPanel panel = new JPanel();
         frame.setBounds(475,175,400,350);
         frame.setResizable(false);
         frame.setTitle("ATM Anjay");
-        frame.add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 
+        //Menambahkan isi aplikasi
+        JPanel panel = new JPanel();
+        frame.add(panel);
         panel.setLayout(null);
         
+        //text No ATM
         ATMLabel = new JLabel("No ATM");
         ATMLabel.setBounds(165,60,80,25);
         panel.add(ATMLabel);
 
+        //Field untuk mengisi no ATM
         userNomor = new JTextField(20);
         userNomor.setBounds(110,90,165,25);
         panel.add(userNomor);
 
+        //text PIN
         PINLabel = new JLabel("PIN");
         PINLabel.setBounds(175,130,80,25);
         panel.add(PINLabel);
 
+        //Field untuk mengisi PIN
         userPIN = new JPasswordField();
         userPIN.setBounds(110,160,165,25);
         panel.add(userPIN);
 
+        //Login Button
         loginButton = new JButton("Login");
         loginButton.setBounds(150, 210, 80,25);
         loginButton.addActionListener(new App());
@@ -46,11 +53,14 @@ public class App implements ActionListener {
         frame.setVisible(true);
     }
 
+    //Pengecekan jika tombol button ditekan
     @Override
     public void actionPerformed(ActionEvent e) {
-        String id = userNomor.getText();
-        String pin = userPIN.getText();
+        //Mengambil data yang diinputkan user
+        String id = userNomor.getText(); //id
+        String pin = userPIN.getText(); //pin
 
+        //Pengecekan id dan pin
         for (int i = 0; i < App.user.length; i++) {
             if(Integer.parseInt(id) == App.user[i][0] && Integer.parseInt(pin) == App.user[i][1]){
                 isUser = true;
@@ -58,6 +68,7 @@ public class App implements ActionListener {
             }
             isUser = false;
         }
+        //output dari pengecekan
         if(isUser){
             JOptionPane.showMessageDialog(null, "You are logged in!");
         }else {
