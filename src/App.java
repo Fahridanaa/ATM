@@ -8,6 +8,7 @@ public class App implements ActionListener {
     private static JPasswordField userPIN;
     private static JButton loginButton;
     private static boolean isUser = false;
+    private static Menu menu = new Menu();
 
     private static int[][] user = {{123,123},{321,321}};
 
@@ -16,7 +17,7 @@ public class App implements ActionListener {
         JFrame frame = new JFrame();
         frame.setBounds(475,175,400,350);
         frame.setResizable(false);
-        frame.setTitle("ATM Anjay");
+        frame.setTitle("ATM Login");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 
         //Menambahkan isi aplikasi
@@ -71,6 +72,8 @@ public class App implements ActionListener {
         //output dari pengecekan
         if(isUser){
             JOptionPane.showMessageDialog(null, "You are logged in!");
+            menu.menuAnjay();
+            
         }else {
             JOptionPane.showMessageDialog(null, "You are not logged in!");
         }
