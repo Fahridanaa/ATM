@@ -9,12 +9,13 @@ public class App implements ActionListener {
     private static JButton loginButton;
     private static boolean isUser = false;
     private static Menu menu = new Menu();
+    private static JFrame frame = new JFrame();
 
     private static int[][] user = {{123,123},{321,321}};
 
     public static void main(String[] args) throws Exception {
         //Mengatur Layout aplikasi
-        JFrame frame = new JFrame();
+        
         frame.setBounds(475,175,400,350);
         frame.setResizable(false);
         frame.setTitle("ATM Login");
@@ -72,8 +73,8 @@ public class App implements ActionListener {
         //output dari pengecekan
         if(isUser){
             JOptionPane.showMessageDialog(null, "You are logged in!");
+            frame.setVisible(false);
             menu.menuAnjay();
-            
         }else {
             JOptionPane.showMessageDialog(null, "You are not logged in!");
         }
